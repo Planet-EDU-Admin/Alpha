@@ -1,0 +1,6 @@
+.git
+.gitignore
+.uploads
+__pycache__
+*.zip
+photobook-preview.png

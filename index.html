@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4f1eb">
+  <title>Alfa Memories — Photobook Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Alfa Memories home"><span class="brand-mark">A</span><span>ALFA <b>MEMORIES</b></span></a>
+    <div class="project-title"><span class="status-dot"></span><span contenteditable="true">Vibe Coding · 2025–26</span><small>Saved just now</small></div>
+    <div class="header-actions">
+      <div class="avatars" aria-label="4 collaborators online"><span>RL</span><span>MK</span><span>JN</span><button title="Invite collaborators">+12</button></div>
+      <button class="btn ghost" id="previewBtn">Preview</button>
+      <button class="btn primary" id="exportBtn">Export book <span>↗</span></button>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <nav class="rail" aria-label="Editor tools">
+      <button class="tool active" data-panel="photos"><span>▧</span>Photos</button>
+      <button class="tool" data-panel="layouts"><span>⊞</span>Layouts</button>
+      <button class="tool" data-panel="text"><span>T</span>Text</button>
+      <button class="tool" data-panel="style"><span>✦</span>Style</button>
+    </nav>
+
+    <aside class="assets" aria-label="Asset panel">
+      <div class="panel-heading"><div><p class="eyebrow">Your library</p><h2>Photos</h2></div><button class="icon-btn">•••</button></div>
+      <label class="upload"><input id="fileInput" type="file" accept="image/*" multiple><span>＋</span><strong>Add photos</strong><small>Choose from this device · JPG, PNG or HEIC</small></label>
+      <div class="asset-filters"><button class="selected">All <b id="assetCount">6</b></button><button>Unused</button><button>Newest⌄</button></div>
+      <section class="asset-group"><h3>September 2026 <span>4</span></h3><div class="photo-grid" id="photoGrid">
+        <button class="thumb t1" draggable="true" aria-label="Team workshop"><span>1</span></button>
+        <button class="thumb t2" draggable="true" aria-label="Code session"></button>
+        <button class="thumb t3" draggable="true" aria-label="Project poster"><span>1</span></button>
+        <button class="thumb t4" draggable="true" aria-label="Presentation"></button>
+      </div></section>
+      <section class="asset-group"><h3>June 2025 <span>2</span></h3><div class="photo-grid"><button class="thumb t5" draggable="true" aria-label="Launch night"></button><button class="thumb t6" draggable="true" aria-label="Team portrait"></button></div></section>
+      <button class="smart-btn" id="smartBtn"><span>✦</span><span><strong>Smart arrange</strong><small>Build a story from dates</small></span></button>
+      <section class="secondary-panel" id="layoutsPanel" hidden>
+        <p class="eyebrow">PAGE TEMPLATES</p><h2>Layouts</h2>
+        <p class="panel-copy">Choose a layout for the selected spread.</p>
+        <div class="layout-grid">
+          <button class="layout-option selected" data-layout="editorial" aria-label="Editorial collage"><i></i><i></i><i></i><i></i></button>
+          <button class="layout-option" data-layout="quarters" aria-label="Four equal photos"><i></i><i></i><i></i><i></i></button>
+          <button class="layout-option" data-layout="feature" aria-label="One feature photo"><i></i><i></i><i></i></button>
+          <button class="layout-option" data-layout="full" aria-label="Full spread photo"><i></i></button>
+        </div>
+      </section>
+    </aside>
+
+    <section class="workspace">
+      <div class="workspace-toolbar">
+        <div class="history"><button title="Undo">↶</button><button title="Redo" disabled>↷</button><span></span><button id="addText">T＋ <b>Add text</b></button></div>
+        <div class="view-switch" aria-label="Canvas view">
+          <button class="selected" data-view="pages">▣ <span>Pages</span></button>
+          <button data-view="list">▤ <span>List</span></button>
+          <button data-view="grid">⊞ <span>Grid</span></button>
+          <button data-view="preview">◉ <span>Preview</span></button>
+        </div>
+        <div class="zoom"><button>−</button><output id="zoomValue">82%</output><button>＋</button></div>
+      </div>
+      <div class="canvas-wrap">
+        <div class="book" id="book">
+          <article class="page left-page">
+            <div class="page-number">05</div><div class="safe-line"></div>
+            <div class="collage">
+              <div class="frame photo-a selected-frame" tabindex="0"><span class="year">2025</span><div class="frame-tools"><button data-action="replace">↻<small>Replace</small></button><button data-action="delete">♲<small>Delete</small></button><button data-action="more">•••<small>More</small></button></div><i class="handle h1"></i><i class="handle h2"></i><i class="handle h3"></i><i class="handle h4"></i></div>
+              <div class="frame photo-b"></div>
+              <div class="caption-card"><p class="eyebrow">CHAPTER TWO</p><h1 contenteditable="true">Ideas into<br><em>motion.</em></h1><p contenteditable="true">A season of prototypes, conversations, and late-night breakthroughs.</p></div>
+              <div class="frame photo-c"><span class="note">DEMO NIGHT<br>09.26</span></div>
+            </div>
+          </article>
+          <article class="page right-page">
+            <div class="page-number">06</div><div class="safe-line"></div>
+            <div class="hero-photo"><span class="vertical">VIBE CODING · HONG KONG</span><div class="hero-caption"><p class="eyebrow">THE COMMUNITY</p><h2 contenteditable="true">We built it<br>together.</h2><p contenteditable="true">300 makers. One shared story.</p></div></div>
+          </article>
+        </div>
+        <p class="hint">Tip: double-click any text to edit · Changes save automatically</p>
+      </div>
+      <div class="filmstrip-wrap">
+        <button class="strip-arrow">‹</button><div class="filmstrip" id="filmstrip">
+          <button class="mini"><span class="mini-cover">ALFA<br><i>memories</i></span><small>Cover</small></button>
+          <button class="mini"><span class="mini-spread pale"></span><small>1–2</small></button>
+          <button class="mini"><span class="mini-spread orange"></span><small>3–4</small></button>
+          <button class="mini active"><span class="mini-spread current"></span><small>5–6</small></button>
+          <button class="mini"><span class="mini-spread blue"></span><small>7–8</small></button>
+          <button class="add-page" id="addPage">＋<small>Add page</small></button>
+        </div><button class="strip-arrow">›</button>
+      </div>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <div class="modal" id="exportModal" aria-hidden="true"><div class="modal-card"><button class="modal-close">×</button><p class="eyebrow">PRINT PRE-FLIGHT</p><h2>Your story is nearly ready.</h2><div class="check"><span>✓</span><p><b>16 pages complete</b><small>All required spreads have content</small></p></div><div class="check warning"><span>!</span><p><b>2 image checks needed</b><small>Review image resolution before ordering</small></p></div><div class="spec"><span>Format</span><b>Vendor-neutral project JSON</b><span>Print profile</span><b>Awaiting supplier confirmation</b></div><button class="btn primary full" id="downloadBtn">Download project manifest</button><p class="fineprint">This prototype does not claim Fujifilm print compliance.</p></div></div>
+  <script src="app.js"></script>
+</body>
+</html>
